@@ -15,7 +15,8 @@ function assert(result, error){
 
 var jared   = new Person('Jared');
 var jeffrey = new Person('jeffrey');
-assert(me.name === 'Jared', 'name was not set');
+assert(jared.name === 'Jared', 'name was not set');
+assert(jeffrey.name === 'Jeffrey', 'name was not set');
 
 assert(jared.scream() === 'MY NAME IS JARED!', 'jared failed to scream');
 assert(jeffrey.scream() === 'MY NAME IS JEFFREY!', 'jeffrey failed to scream');
