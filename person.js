@@ -14,5 +14,12 @@ Person.prototype.procreate = function() {
 }
 
 Person.prototype.wed = function(spouse) {
-
+	if (this.sex == 'male') {
+		this.wife = spouse;
+		spouse.husband = this;
+	}
+	else {
+		this.husband = spouse;
+		spouse.wife = this;
+	}
 }
