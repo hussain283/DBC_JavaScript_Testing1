@@ -1,5 +1,5 @@
-function Person(name){
-  this.name = name;
+function Person(options){
+  this.name = options.name;
   this.children = [];
 }
 
