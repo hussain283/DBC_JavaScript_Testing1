@@ -1,5 +1,6 @@
 function Person(options){
   this.name = options.name;
+  this.sex = options.sex;
   this.children = [];
 }
 
@@ -10,4 +11,8 @@ Person.prototype.scream = function() {
 Person.prototype.procreate = function() {
   this.children.push(new Person);
   return this;
+}
+
+Person.prototype.wed = function(spouse) {
+
 }
