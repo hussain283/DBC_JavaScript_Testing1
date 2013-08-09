@@ -16,6 +16,13 @@ assert(jeffrey.scream === jared.scream, 'jared.scream and jeffrey.scream should 
 jeffrey.procreate();
 
 assert(jeffrey.children.length === 1, 'jeffrey should have 1 child');
-assert(jeffrey.childre[0] instanceof Person, 'jeffrey\'s kid should be a child');
+assert(jeffrey.children[0] instanceof Person, 'jeffrey\'s kid should be a child');
+
+jared.procreate();
+jared.procreate();
+
+assert(jared.children.length === 2, 'jared should have 1 child');
+assert(jared.children[0] instanceof Person, 'jared\'s kid should be a child');
+assert(jared.children[1] instanceof Person, 'jared\'s kid should be a child');
 
 console.log('all tests pass!');
