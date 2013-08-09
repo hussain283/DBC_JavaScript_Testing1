@@ -10,12 +10,20 @@ var alice  = new Person({name: 'Alice', sex:'female'});
 assert(jared.name === 'Jared', 'name should be Jared');
 assert(alice.name === 'Alice', 'name should be Jeffrey');
 
+assert(jared.sex === 'male', 'jared should be male');
+assert(alice.sex === 'female', 'alice should be Jeffrey');
+
 assert(jared.scream() === 'MY NAME IS JARED!', 'jared failed to scream');
 assert(alice.scream() === 'MY NAME IS ALICE!', 'alice failed to scream');
 assert(alice.scream === jared.scream, 'jared.scream and alice.scream should be the same');
 
 
 jared.wed(alice);
+
+assert(jared.wife === alice, 'jared\'s wife should be alice');
+assert(alice.husband === jared, 'alice\'s husband should be jared');
+
+alice.wed(jared);
 
 assert(jared.wife === alice, 'jared\'s wife should be alice');
 assert(alice.husband === jared, 'alice\'s husband should be jared');
