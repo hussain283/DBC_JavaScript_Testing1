@@ -35,10 +35,14 @@ assert(jared.wife === alice, 'jared\'s wife should be alice');
 assert(alice.husband === jared, 'alice\'s husband should be jared');
 
 
-// jeffrey.procreate();
+jared.procreate({name: 'Moonbeam', sex:'female'});
 
-// assert(jeffrey.children.length === 1, 'jeffrey should have 1 child');
-// assert(jeffrey.children[0] instanceof Person, 'jeffrey\'s kid should be a child');
+assert(jared.children.length === 1, 'jared should have 1 child');
+assert(alice.children.length === 1, 'jared should have 1 child');
+assert(jared.children[0] instanceof Person, 'jeffrey\'s kid should be a child');
+assert(jared.children[0] === alice.children[0], 'jared and alice should have the same child');
+assert(jared.children[0].name === 'Moonbeam');
+assert(jared.children[0].sex === 'female');
 
 // jared.procreate();
 // jared.procreate();
