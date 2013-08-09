@@ -4,8 +4,9 @@ function assert(result, error){
   if (!result) throw error;
 }
 
-var jared   = new Person('Jared');
-var jeffrey = new Person('Jeffrey');
+var jared  = new Person({name: 'Jared', sex:'male');
+var alice  = new Person({name: 'Alice', sex:'female');
+
 assert(jared.name === 'Jared', 'name should be Jared');
 assert(jeffrey.name === 'Jeffrey', 'name should be Jeffrey');
 
