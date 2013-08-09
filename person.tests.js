@@ -18,10 +18,16 @@ assert(alice.scream() === 'MY NAME IS ALICE!', 'alice failed to scream');
 assert(alice.scream === jared.scream, 'jared.scream and alice.scream should be the same');
 
 
+var jared = new Person({name: 'Jared', sex:'male'});
+var alice = new Person({name: 'Alice', sex:'female'});
+
 jared.wed(alice);
 
 assert(jared.wife === alice, 'jared\'s wife should be alice');
 assert(alice.husband === jared, 'alice\'s husband should be jared');
+
+var jared = new Person({name: 'Jared', sex:'male'});
+var alice = new Person({name: 'Alice', sex:'female'});
 
 alice.wed(jared);
 
