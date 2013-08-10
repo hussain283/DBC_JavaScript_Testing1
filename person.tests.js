@@ -78,5 +78,9 @@ assert(!jared.alive,  'jared should not be alive');
 assert(alice.alive,  'alice should be alive');
 assert(sparky.alive, 'sparky should be alive');
 
+sparky.kill();
+
+assert(!sparky.alive, "sparky should not be alive")
+
 
 console.log('all tests pass!');
