@@ -4,12 +4,21 @@ function assert(result, error){
   if (!result) throw error;
 }
 
+function assertThrows(_function, error) {
+  try{ _function() }catch(e){
+    if (e.message) e = e.message;
+    assert(e === error, 'expected '+_function+' to throw "'+error+'" but caught "'+e+'"');
+  }
+}
+
 var jared  = new Person({name: 'Jared', sex:'male'});
 var alice  = new Person({name: 'Alice', sex:'female'});
 
-
 assert(jared instanceof Person, 'jared should be a Person');
 assert(alice instanceof Person, 'alice should be a Person');
+assert(jared instanceof Mammal, 'jared should be a Mammal');
+assert(alice instanceof Mammal, 'alice should be a Mammal');
+
 assert(jared.name === 'Jared', 'name should be Jared');
 assert(alice.name === 'Alice', 'name should be Jeffrey');
 
@@ -19,10 +28,6 @@ assert(alice.sex === 'female', 'alice should be Jeffrey');
 assert(jared.scream() === 'MY NAME IS JARED!', 'jared failed to scream');
 assert(alice.scream() === 'MY NAME IS ALICE!', 'alice failed to scream');
 assert(alice.scream === jared.scream, 'jared.scream and alice.scream should be the same');
-
-
-var jared = new Person({name: 'Jared', sex:'male'});
-var alice = new Person({name: 'Alice', sex:'female'});
 
 jared.wed(alice);
 
@@ -37,8 +42,10 @@ alice.wed(jared);
 assert(jared.wife === alice, 'jared\'s wife should be alice');
 assert(alice.husband === jared, 'alice\'s husband should be jared');
 
+moonbeam = jared.procreateWith(alice, {name: 'Moonbeam', sex:'female'});
 
-moonbeam = jared.procreate({name: 'Moonbeam', sex:'female'});
+assertThrows(function(){ jared.procreateWith(jared, {}); }, 'you cannot have a baby with yourself!');
+assertThrows(function(){ jared.procreateWith(new Person({sex:'male'}), {}); }, 'two men cannot have a baby!');
 
 assert(jared.children.length === 1, 'jared should have 1 child');
 assert(alice.children.length === 1, 'alice should have 1 child');
@@ -58,6 +65,7 @@ sparky = jared.buyPet(Dog, {name:'Sparky', sex:'male'});
 assert(jared.pets.length === 1, 'jared should have 1 pet');
 assert(jared.pets[0] === sparky, 'jared\'s pet should be sparky');
 
+assert(sparky instanceof Mammal, 'sparky should be a Mammal');
 assert(!(sparky instanceof Person), 'sparky should not be a Person');
 assert(sparky instanceof Dog, 'sparky should be a Dog');
 assert(!(jared instanceof Dog), 'jared should not be a Dog');
