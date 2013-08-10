@@ -42,7 +42,7 @@ assert(alice.children.length === 1, 'alice should have 1 child');
 assert(jared.children[0] instanceof Person, 'jeffrey\'s kid should be a child');
 assert(jared.children[0] === alice.children[0], 'jared and alice should have the same child');
 assert(jared.children[0].name === 'Moonbeam', 'jared child should be named Moonbeam');
-assert(jared.children[0].sex === 'jared child should be female');
+assert(jared.children[0].sex === 'female', 'jared child should be female');
 
 
 jared.buyPet(Dog, {name:'Sparky', sex:'male'});
