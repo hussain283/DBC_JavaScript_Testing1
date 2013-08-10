@@ -38,14 +38,19 @@ assert(jared.wife === alice, 'jared\'s wife should be alice');
 assert(alice.husband === jared, 'alice\'s husband should be jared');
 
 
-jared.procreate({name: 'Moonbeam', sex:'female'});
+moonbeam = jared.procreate({name: 'Moonbeam', sex:'female'});
 
 assert(jared.children.length === 1, 'jared should have 1 child');
 assert(alice.children.length === 1, 'alice should have 1 child');
-assert(jared.children[0] instanceof Person, 'jeffrey\'s kid should be a child');
-assert(jared.children[0] === alice.children[0], 'jared and alice should have the same child');
-assert(jared.children[0].name === 'Moonbeam', 'jared child should be named Moonbeam');
-assert(jared.children[0].sex === 'female', 'jared child should be female');
+assert(jared.children[0] === moonbeam, 'jared\'s only child should be moonbeam');
+assert(alice.children[0] === moonbeam, 'alice\'s only child should be moonbeam');
+assert(moonbeam instanceof Person, 'jared\'s kid should be a child');
+assert(moonbeam.name === 'Moonbeam', 'jared child should be named Moonbeam');
+assert(moonbeam.sex === 'female', 'jared child should be female');
+assert(moonbeam.father === jared, "moonbeam's father should be jared");
+assert(moonbeam.mother === alice, "moonbeam's mother should be alice");
+
+// assert()
 
 
 sparky = jared.buyPet(Dog, {name:'Sparky', sex:'male'});
@@ -63,5 +68,13 @@ assert(sparky.sex === 'male', 'sparky should be male');
 assert(sparky.owner === jared, 'sparky\'s owner should be jared');
 
 
+assert(jared.alive,  'jared should be alive');
+assert(alice.alive,  'alice should be alive');
+assert(sparky.alive, 'sparky should be alive');
 
+jared.kill();
+
+assert(!jared.alive,  'jared should not be alive');
+assert(alice.alive,  'alice should be alive');
+assert(sparky.alive, 'sparky should be alive');
 console.log('all tests pass!');
