@@ -53,11 +53,6 @@ assert(sparky.name === 'Sparky', 'sparky should be named Sparky');
 assert(sparky.sex === 'male', 'sparky should be male');
 assert(sparky.owner === jared, 'sparky\'s owner should be jared');
 
-// jared.procreate();
-// jared.procreate();
 
-// assert(jared.children.length === 2, 'jared should have 1 child');
-// assert(jared.children[0] instanceof Person, 'jared\'s kid should be a child');
-// assert(jared.children[1] instanceof Person, 'jared\'s kid should be a child');
 
 console.log('all tests pass!');
