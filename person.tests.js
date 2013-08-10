@@ -45,11 +45,13 @@ assert(jared.children[0].name === 'Moonbeam', 'jared child should be named Moonb
 assert(jared.children[0].sex === 'female', 'jared child should be female');
 
 
-jared.buyPet(Dog, {name:'Sparky', sex:'male'});
+sparky = jared.buyPet(Dog, {name:'Sparky', sex:'male'});
 
 assert(jared.pets.length === 1, 'jared should have 1 pet');
-assert(jared.pets[0].name === 'Sparky', 'jared\'s pet should be named Sparky');
-assert(jared.pets[0].sex === 'male', 'jared\'s pet should be male');
+assert(jared.pets[0] === sparky, 'jared\'s pet should be sparky');
+assert(sparky.name === 'Sparky', 'sparky should be named Sparky');
+assert(sparky.sex === 'male', 'sparky should be male');
+assert(sparky.owner === jared, 'sparky\'s owner should be jared');
 
 // jared.procreate();
 // jared.procreate();
