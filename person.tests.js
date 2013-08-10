@@ -44,7 +44,7 @@ assert(jared.children.length === 1, 'jared should have 1 child');
 assert(alice.children.length === 1, 'alice should have 1 child');
 assert(jared.children[0] === moonbeam, 'jared\'s only child should be moonbeam');
 assert(alice.children[0] === moonbeam, 'alice\'s only child should be moonbeam');
-assert(moonbeam instanceof Person, 'jared\'s kid should be a child');
+assert(moonbeam instanceof Person, 'jared\'s kid should be a Person');
 assert(moonbeam.name === 'Moonbeam', 'jared child should be named Moonbeam');
 assert(moonbeam.sex === 'female', 'jared child should be female');
 assert(moonbeam.father === jared, "moonbeam's father should be jared");
